@@ -1,0 +1,32 @@
+.container{
+	width:900px;
+	margin: 0px auto;
+}
+.header{
+	margin:0px;
+}
+.main-content{
+	margin-top: 20px;
+}
+.nav{
+	width: 188px;
+	display:inline-block;
+	vertical-align: top;
+}
+.essays{
+	width: 647px;
+	display:inline-block;
+	vertical-align: top;
+	padding: 10px;
+    border-radius: 20px;
+    background: grey;
+    margin-left: 20px;
+}
+.footer{
+	margin-top: 20px;
+}
+.bkg-block{
+	background: #eeeeee;
+	border-radius: 20px;
+	padding: 10px;
+}

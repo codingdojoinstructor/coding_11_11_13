@@ -1,0 +1,108 @@
+*{
+	font-family: arial;
+}
+body{
+	margin: 0px;
+}
+h1, h2, h4{
+	color: #660002;
+}
+.header{
+	border-top: 2px solid darkgrey;
+	border-bottom: 2px solid darkgrey;
+	background: #660002;
+}
+.head-sub{
+	width:920px;
+	margin: 0px auto;
+}
+.main-logo{
+	vertical-align: bottom;
+}
+.logo{
+	width:300px;
+	display:inline-block;
+	color:white;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	font-size: 28px;
+}
+.search{
+	width: 350px;
+	margin-left: 180px;
+	display: inline-block;
+	text-align: right;
+}
+.search ul {
+	padding:0px;
+	display:inline-block;
+}
+.search ul li{
+	list-style-type:none;
+	display: inline-block;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.left-bar{
+	border-left: 1px solid white;
+}
+.nav{
+	background: #eeeeee;
+}
+.nav ul{
+	width: 920px;
+	margin: 0px auto;
+	padding: 10px 0px;
+}
+.nav-links li{
+	display: inline-block;
+	list-style-type:none;
+	color:grey;
+	margin-left: 15px;
+	border-left: 1px solid grey;
+	padding-left: 10px;
+}
+.nav-links li:first-child{
+	border-left: none;
+}
+.nav-link{
+	color: #535353;
+	font-weight: bold;
+	text-decoration: none;
+}
+.container{
+	width:920px;
+	margin: 0px auto;
+	margin-top: 20px;
+}
+.sub-nav{
+	list-style-image: url('img/arrow.png');
+	background: #eeeeee;
+	width: 180px;
+	height:500px;
+	display: inline-block;
+	border:1px solid darkgrey;
+}
+.main-content{
+	vertical-align: top;
+	width:716px;
+	margin-left: 20px;
+	display: inline-block;
+}
+.btn-search{
+	background:none;
+	border: 1px solid white;
+	color:white;
+}
+a, a:hover, a:visited{
+	color: #660002;
+}
+.hlight, .hlight a{
+	color: #FCC441;
+}
+.off-text{
+	color: white;
+}
+.txt-med{
+	font-size: 12px;
+}

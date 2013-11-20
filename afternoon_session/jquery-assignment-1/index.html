@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+    
+    .error{
+      color:red;
+    }
+    
+    </style>
+    <!-- adding jQuery -->
+    <script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+  
+        $('#start').click(function(){
+          $('#kung-fu img').attr('src', 'http://bestgamewallpapers.com/files/warriors/fury.jpg');
+        });
+        
+        $('#kung-fu img').hide();
+
+        $('ul.nav li:last-child').click(function(){
+          $('#kung-fu img').fadeIn(4000, function(){
+            $(this).fadeOut(10000);
+          })
+        })
+
+        $("#detail").click(function(){
+          $("#detail-show").toggle();
+        })
+        
+        $('ul.nav li').click(function(){
+          var curr = $(this);
+          var title = curr.text();
+
+          $('#title').text(title + ' Stuff!');
+          curr.addClass('active');
+          $('#lead').html("Learn more about "+title+'!');
+
+          // go through each of the other li elements and remove the current active class
+          $(this).siblings().each(function(index){
+            if($(this).attr('class') == 'active')
+            {
+              $(this).removeClass('active');
+            }
+          });
+        });
+
+        // catches the submit EVENT and runs the code within the function(){}
+        $('form').submit(function(){
+          var add_it = $('input[name="aname"]').val();
+          
+          $('.error').remove();
+          
+          if(add_it == "Joe")
+          {
+            $('input[name="aname"]').before('<p class="error">We dont like Joe</p>');
+            $('input[name="aname"]').focus();
+          }
+          else
+          {
+            $(this).before('<p><b>I show up before</b>: '+add_it+'</p>');
+            $(this).after('<p><b>I show up after</b>: '+add_it+'</p>');
+            $(this).append('<p><b>I append!</b>: '+add_it+'</p>');  
+          }
+          
+            // this is to prevent the page from redirecting
+            return false;
+        });
+
+      });
+    </script> 
+  </head>
+
+  <body>
+    <div id="kung-fu">
+      <img src="http://www.bubblews.com/assets/images/news/1325304672_1374874048.jpg">
+    </div>
+    <div class="container">
+      <div class="masthead">
+        <h3 class="muted">Project name</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1 id="title">Marketing stuff!</h1>
+        <p id="lead" class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <a id="start" class="btn btn-large btn-success my-btn-success" href="#">Get started today</a>
+      </div>
+
+      <hr>
+
+      <!-- Example row of columns -->
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div id="detail-show"class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+        </div>
+      </div>
+      <p><a id="detail" class="btn" href="#">View details &raquo;</a></p>
+      <form action="process.php" method="post">
+        <fieldset>
+          <legend>Legend</legend>
+          <label>Label name</label>
+          <input name="aname" type="text" placeholder="Type something…">
+          <span class="help-block">Example block-level help text here.</span>
+          <label class="checkbox">
+            <input name="check" type="checkbox" value="something"> Check me out
+          </label>
+          <button type="submit" class="btn">Submit</button>
+        </fieldset>
+
+      </form>
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+    </div>
+  </body>
+</html>

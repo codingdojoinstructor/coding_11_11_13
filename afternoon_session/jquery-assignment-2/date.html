@@ -1,0 +1,60 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  $(function() {
+    $( "#from" ).datepicker();
+    $( "#to" ).datepicker();
+
+    $('form').submit(function(){
+
+    	// the old javascript way of selecting. No love
+    	// var from = document.getElementById('from');
+    	// var to = document.getElementById('to');
+
+    	// this is the jQuery way
+    	$(this).before("You've selected the dates from " + $('#from').val() + ' to ' + $('#to').val());
+    	
+    	// this is a more challenging way with jQuery and some additional javascript
+    	// var message = "You've selected the dates from ";
+    	// $(this).children().each(function(index, value){
+    		
+    	// 	var el = $(this);
+    	// 	if(el.attr('type') != 'submit')
+    	// 	{
+    	// 		var input = el.children(":first");
+    	// 		var date = input.val();	
+    	// 		if($(input).attr('name') == "from")
+    	// 		{
+    	// 			message += date;
+    	// 		}
+    	// 		else
+    	// 		{
+    	// 			message += " to " + date;
+    	// 		}
+    	// 	}
+    	// });
+    	// $(this).before('<p>'+message+'</p>');
+    	return false;
+    });
+  });
+  </script>
+</head>
+<body>
+ <form action="process.php" action="post">
+	<p>Date From: <input name="from" type="text" id="from" /></p>
+	<p>Date To: <input name="to" type="text" id="to" /></p>
+	<input type="submit" value="Show Dates">
+ </form>
+
+ 
+ 
+</body>
+</html>

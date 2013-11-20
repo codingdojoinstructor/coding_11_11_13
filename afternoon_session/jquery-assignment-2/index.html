@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery Assignment 2</title>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>
+	$(function(){
+		// we used this to generate the images from the start
+		// $('body').html(function(){
+		// 	var content = '';
+		// 	for(var i = 0; i < 8; i++) {
+		// 		content += '<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">';
+		// 	}
+		// 	content += '<button>Reset</button>';
+
+		// 	return content;
+		// });
+		$('img').click(function(){
+			$(this).fadeOut();
+		});
+
+		$('button').click(function(){
+			$('img').fadeIn();
+		});
+	})
+	</script>
+	<style type="text/css">
+		img{
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<img src="http://public.ifbyphone.com/wp-content/uploads/2013/10/cartoon-turtles.png" alt="">
+	<button>Reset</button>
+</body>
+</html>

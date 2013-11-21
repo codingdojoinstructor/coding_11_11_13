@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery Assignment 3</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+  <script>
+  $(function() {
+  	$("img").click(function(){
+  		var img_src = $(this).attr('src');
+  		console.log('img_src:' + img_src);
+
+  		ninja = img_src.indexOf('ninja');
+  		console.log('ninja: ' + ninja);
+  		if(ninja != -1)
+  		{
+  			$(this).attr('src', img_src.replace('ninja', 'cat'));
+  		}
+  		else
+  		{
+  			$(this).attr('src', img_src.replace('cat', 'ninja'));	
+  		}
+  	})
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
+</head>
+<body>
+<ul id="sortable">
+  <li class="ui-state-default"><img id="1" src="img/ninja1.png" ></li>
+  <li class="ui-state-default"><img id="2" src="img/ninja2.png" ></li>
+  <li class="ui-state-default"><img id="3" src="img/ninja3.png" ></li>
+  <li class="ui-state-default"><img id="4" src="img/ninja4.png" ></li>
+  <li class="ui-state-default"><img id="5" src="img/ninja5.png" ></li>
+</ul>
+</body>
+</html>

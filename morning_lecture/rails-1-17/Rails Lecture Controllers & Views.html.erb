@@ -1,0 +1,102 @@
+<% 
+
+## Controllers and Views
+
+#  generating a new controller
+#  ->rails g contoller Users index, new, create, show
+
+# rails will generate the necessary methods for you, but you will still have to set the routes
+
+## Routing to the appropriate Controller and Method using RESTful Methodology
+
+#  setting routes for each resource
+resources :users
+resources :posts
+# or
+resources :users, :posts
+
+#  nested resources
+resources :users do
+	resources :posts
+end
+
+# user_posts_path(3) /users/3/posts/
+
+# users_path /users
+# users_url http://localhost:3000/users
+
+#  see what routes have been created
+# ->rake routes
+
+## Render and Redirect_to in the Controller
+
+#  render vs. redirect
+
+# render is responsible for calling a specific view or outputing content to the page whereas redirect will call an entirely new class and method.
+
+#  render behavior
+def show
+	@user = User.find(params[:id])
+	render 'show' # this is redundant
+end
+# rails will automatically call the view of the method that was called unless you redirect or render something else.'
+
+#  create, update, and destroy
+
+# we need to render a view for these methods because their role is not to display a view, but rather to simply create, update or destroy records.
+
+#  rendering different types
+def show
+	@user = User.find(params[:id])
+	render json: @user # this will render the @user data in json format. You can also put it in xml:.
+end
+
+render text: "Some text" # this will prevent any further redirects or processing and show the text on the current page.
+
+#  using redirect_to
+def show
+	@user = User.find(params[:id])
+	if @user.nil
+		redirect_to users_path # understands the path that has been created in the routes config.
+	end
+end
+
+## Layouts
+
+#  javascript_include_tag, stylesheet_link_tag, and image_tag
+# these tags have a predefined path of /app/assets
+# the application js and application css are included by default.
+# require_tree . in both the application stylesheet and application javascript file will include any files put within the javascripts or stylesheets directory
+
+#  yield and content_for
+# the main yield that is in the layout is responsible for yielding the called view.
+
+# you can also add your own view using the content_for
+#  in the view file
+%>
+<% content_for :nav do %>
+	<ul>
+		<li>first item</li>
+		<li>second item</li>
+	</ul>
+<% end %>
+<%
+#  in the layout file where you want to output :nav
+%>
+
+<%= yield :nav %>
+
+<%
+## Partials
+# Partials seem scary, but they're really easy to implement
+#  to include a partial create a file with html and or embedded ruby and save the file as the name of the partial starting with an underscore
+
+# views/_headertitle.html.erb
+%>
+<h1><%= @headertitle %></h1>
+<%
+# inside the view that you want the partial to show up:
+%>
+
+<%= render "headertitle" %>
+
